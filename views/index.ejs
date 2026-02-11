@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <style>
+    /* Basic styling for result states - also defined in style.css */
+    /* Keeping here for quick reference, but style.css is primary */
+    .positive {
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .negative {
+      color: #c62828;
+      font-weight: bold;
+    }
+
+    .neutral {
+      color: #616161;
+      font-weight: bold;
+    }
+
+    .loading-status {
+      color: #FFA500;
+      font-style: italic;
+    }
+
+    .error-status {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Transformers.js from CDN -->
+  <script type="module">
+    // Import the pipeline function from transformers.js
+    // We use @huggingface/transformers as it's the latest official package name
+    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@latest';
+
+    // Expose it globally so our traditional sentiment.js script can access it
+    window.pipeline = pipeline;
+    console.log("transformers.js pipeline function loaded and exposed globally.");
+  </script>
+
+  <!-- Our application logic -->
+  <script src="/javascripts/sentiment.js" defer></script>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p class="intro">
+    100% client-side AI using Transformers.js — no data leaves your browser.<br>
+    Powered by a fine-tuned DistilBERT model.
+  </p>
+
+  <textarea id="inputText" placeholder="Type or paste a sentence, review, comment..."></textarea>
+
+  <button onclick="analyze()">Analyze Sentiment</button>
+
+  <div id="status">Ready... (model loads automatically on first use)</div>
+  <div id="result"></div>
+</body>
+
 </html>

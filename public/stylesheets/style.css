@@ -1,8 +1,126 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  line-height: 1.5;
+  background-color: #f4f7f6;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+p.intro {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+textarea {
+  width: calc(100% - 2rem);
+  /* Account for padding */
+  height: 140px;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+textarea:focus {
+  border-color: #4CAF50;
+}
+
+button {
+  display: block;
+  margin: 1.5rem auto 1rem auto;
+  padding: 0.9rem 2.5rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+#status {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 1.5rem 0 1rem 0;
+  min-height: 1.5em;
+  /* Prevent layout shift when empty */
+}
+
+.loading-status {
+  color: #FFA500;
+  /* Orange */
+}
+
+.error-status {
+  color: #d32f2f;
+  /* Red */
+  font-weight: bold;
+}
+
+#result {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #ffffff;
+  min-height: 80px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.positive {
+  color: #2e7d32;
+  /* Dark green */
+  font-weight: bold;
+}
+
+.negative {
+  color: #c62828;
+  /* Dark red */
+  font-weight: bold;
+}
+
+.neutral {
+  color: #616161;
+  /* Dark grey */
+  font-weight: bold;
+}
+
+small {
+  color: #777;
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
 }
